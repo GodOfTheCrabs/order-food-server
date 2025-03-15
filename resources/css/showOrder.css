@@ -1,0 +1,39 @@
+.img-product {
+    width: 95px;
+    height: 95px;
+    border-radius: 10px;
+    margin-right: 15px;
+}
+.basket-product-block {
+    min-width: 920px;
+}
+.product-block {
+    height: 110px;
+    width: 1100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #EEEFF4;
+    border-radius: 25px;
+    margin-bottom: 25px;
+}
+.product-block div {
+    display: flex;
+    align-items: center;
+}
+
+p {
+    margin-bottom: 0 !important;
+}
+.product-price {
+    display: flex;
+    flex-direction: column;
+}
+.price-all {
+    font-weight: 600;
+}
+.price-one {
+    color: #B8B9B8;
+    font-size: 12px
+}
+

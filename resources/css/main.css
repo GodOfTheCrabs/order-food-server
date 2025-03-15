@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Yuji+Mai&display=swap');
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+.menu {
+    width: 225px;
+    font-size: 18px;
+    overflow: hidden;
+    margin-right: 100px;
+}
+
+.title {
+    margin: 20px 0 35px 14px;
+    font-size: 24px;
+    color: #777789;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+.menu-item {
+    width: 225px;
+    height: 60px;
+    cursor: pointer;
+    padding-left: 13px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+.menu-item:hover {
+    color: white;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+#foods-menu:hover {
+    background-color: #229951;
+}
+#users-menu:hover {
+    background-color: #6AA3D5;
+}
+#orders-menu:hover {
+    background-color: #EB7835;
+}
+#roles-menu:hover {
+    background-color: #B07DD4;
+}
+#categories-menu:hover {
+    background-color: #2cac9b ;
+}
+#hide-menu:hover {
+    background-color: #C9C9C9;
+}
+
+#login-menu:hover {
+    background-color: #262626;
+}
+
+#report-menu:hover {
+    background-color: #262626;
+}
+
+#logout-menu:hover {
+    background-color: #262626;
+}
+
+.icon {
+    margin-right: 15px;
+}
+
+.active {
+    color: white;
+}
+#foods-menu.active {
+    background-color: #229951;
+}
+#users-menu.active {
+    background-color: #6AA3D5;
+}
+#orders-menu.active {
+    background-color: #EB7835;
+}
+#roles-menu.active {
+    background-color: #B07DD4;
+}
+#categories-menu.active {
+    background-color: #2cac9b;
+}
+#login-menu.active {
+    background-color: #262626;
+}
+#login-menu.active {
+    background-color: #262626;
+}
+
+#report-menu.active {
+    background-color: #262626;
+}
+
+
+
+.toggle-icon {
+    display: inline-block;
+    transition: transform 0.6s;
+    transform: rotate(0deg);
+}
+
+.toggle-icon.rotate {
+    transform: rotate(180deg);
+}
+
+.hide-menu-animation {
+    animation-name: hide;
+    animation-duration: 0.6s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards; 
+}
+
+.show-menu-animation {
+    animation-name: show;
+    animation-duration: 0.6s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards; 
+}
+
+@keyframes hide {
+    0% {
+        width: 225px;
+    }
+    100% {
+        width: 45px;
+    }
+}
+
+@keyframes show {
+    0% {
+        width: 45px;
+    }
+    100% {
+        width: 225px;
+    }
+}
+
+.container-main {
+    max-width: 1920px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-table {
+    width: 100%;
+}
+
+.add-new {
+    margin-bottom: 15px;
+}
+
+.btn-edit {
+    width: 40px;
+}
+
+.btn-delete {
+    width: 40px;
+}
+
+.item-left {
+    flex: 0 0 auto;
+}
+  
+.item-center {
+    flex: 1; 
+}
+
