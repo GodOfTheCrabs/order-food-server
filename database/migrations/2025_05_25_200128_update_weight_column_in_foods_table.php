@@ -12,8 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('foods', function (Blueprint $table) {
-            $table->dropForeign(['price_unit_id']);
-            $table->dropColumn('price_unit_id');
+            $table->decimal('weight', 8, 1)->change();
         });
     }
 
@@ -23,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('foods', function (Blueprint $table) {
-            //
+            $table->integer('weight')->change();
         });
     }
 };

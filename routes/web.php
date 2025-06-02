@@ -7,6 +7,7 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Models\Role;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,18 +25,21 @@ Route::get('/', function () {
 if(Auth::check()) {
         return view('layouts.main');
     } else {
-        return redirect()->route('login');        
+        return redirect()->route('login');
     }
 });
 
 Route::group(['middleware' => ['auth']], function () {
+    Route::resource('foods', FoodController::class)->except(['update']);
+
     Route::resources([
-        'foods' => FoodController::class,
         'categories' => CategoryController::class,
         'roles' => RoleController::class,
         'users' => UserController::class,
         'orders' => OrderController::class,
     ]);
+
+    Route::post('foods/update/{food}', [FoodController::class, 'update'])->name('foods.update');
 });
 
 

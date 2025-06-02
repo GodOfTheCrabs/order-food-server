@@ -2,7 +2,7 @@
 @section('title', 'Створення нового запису')
 @section('content')
 @vite('resources/js/showImage.js')
-<div class="container">  
+<div class="container">
     <form class="well form-horizontal admin-form" action={{route('foods.store')}} method="post"  enctype="multipart/form-data">
         @csrf
         <fieldset class="field-form">
@@ -24,15 +24,15 @@
 
 
         <!-- Text area -->
-        
+
         <div class="form-group">
             <label class="control-label">Name</label>
             <div class="inputGroupContainer">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                    <input name="name" placeholder="Name" class="form-control  @error('name') is-invalid @enderror"  type="text" value="{{old('name')}}"}>              
-                </div>              
-            </div>          
+                    <input name="name" placeholder="Name" class="form-control  @error('name') is-invalid @enderror"  type="text" value="{{old('name')}}"}>
+                </div>
+            </div>
         </div>
 
         @error('info')
@@ -42,19 +42,32 @@
         <!-- Text input-->
 
         <div class="form-group">
-            <label class="control-label" >Price</label> 
+            <label class="control-label" >Price</label>
             <div class="inputGroupContainer">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                     <input name="price" placeholder="Price" class="form-control  @error('price') is-invalid @enderror"  type="number" value="{{old('price')}}"}>
-                </div>          
+                </div>
             </div>
         </div>
         @error('price')
             <div class="alert alert-danger  error-block">{{ $message }}</div>
         @enderror
-               
-        <div class="form-group"> 
+
+        <div class="form-group">
+            <label class="control-label">Weight</label>
+            <div class="inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input name="weight" placeholder="Input weight" class="form-control  @error('weight') is-invalid @enderror"  type="number" step="0.1" value="{{old('weight')}}"}>
+                </div>
+            </div>
+        </div>
+        @error('weight')
+        <div class="alert alert-danger  error-block">{{ $message }}</div>
+        @enderror
+
+        <div class="form-group">
             <label class="control-label">Select Category</label>
             <div class="selectContainer">
                 <div class="input-group">
@@ -75,15 +88,15 @@
                 </button>
             </div>
         </div>
-        
+
         <div class="form-group" id="recipeFieldContainer" style="display: none;">
             <label class="control-label">Recipe</label>
             <div class="inputGroupContainer">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                    <textarea 
-                        class="form-control @error('recipe') is-invalid @enderror" 
-                        name="recipe" 
+                    <textarea
+                        class="form-control @error('recipe') is-invalid @enderror"
+                        name="recipe"
                         placeholder="Recipe to product"
                     >{{ old('recipe')}}</textarea>
                 </div>

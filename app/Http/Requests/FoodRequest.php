@@ -24,6 +24,7 @@ class FoodRequest extends FormRequest
         return [
             'name' => 'required|max:255',
             'price' => 'required',
+            'weight' => 'required|numeric',
             'category_id' => 'required|exists:categories,id',
             'image' => 'required|max:4096',
             'recipe' => 'nullable'

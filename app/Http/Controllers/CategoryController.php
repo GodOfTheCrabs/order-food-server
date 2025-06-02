@@ -6,7 +6,7 @@ use App\Http\Requests\CategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
-use Storage;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -43,7 +43,7 @@ class CategoryController extends Controller
     public function store(CategoryRequest $request)
     {
         $data = $request->except('_token');
-        $data['image'] = $request->file('image')->store('categories');
+        $data['image'] = $request->file('image')->store('categories', 'public');
 
         $category = Category::create($data);
         return redirect()->route('categories.index');
@@ -66,8 +66,8 @@ class CategoryController extends Controller
     {
         if($request->has('image')) {
             Storage::delete($category->image);
-            $path = $request->file('image')->store('categories');
-            
+            $path = $request->file('image')->store('categories', 'public');
+
             $category->image = $path;
         }
 

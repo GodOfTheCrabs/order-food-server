@@ -31,22 +31,26 @@ Route::post('/comments', [CommentController::class, 'store'])->middleware('auth:
 
 Route::get('/sanctum/csrf-cookie', [CsrfCookieController::class, 'show']);
 
-Route::get('/categories', [CategoryController::class, 'index']); 
+Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/categories/{id}', [CategoryController::class, 'show']);
 
-Route::post('/register', [AuthController::class, 'register']); 
+Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
 Route::put('/update', [AuthController::class, 'update'])->middleware('auth:sanctum');
 Route::put('/update-photo', [AuthController::class, 'updatePhoto'])->middleware('auth:sanctum');
 
-Route::get('/foods', [FoodController::class, 'index']); 
+Route::get('/foods', [FoodController::class, 'index']);
 Route::get('/foods/{id}', [FoodController::class, 'show']);
 
 Route::post('/orders', [OrderController::class, 'store'])->middleware('auth:sanctum');
 Route::get('/orders', [OrderController::class, 'index'])->middleware('auth:sanctum');
 Route::post('/ratings', [RatingController::class, 'store'])->middleware('auth:sanctum');
+
+Route::get('/history/orders', [OrderController::class, 'getOrders'])->middleware('auth:sanctum');
+Route::get('/history/orders/analytics', [OrderController::class, 'getAnalytics'])->middleware('auth:sanctum');
+Route::get('/history/orders/reports', [OrderController::class, 'export'])->middleware('auth:sanctum');
 
 Route::post('/auth/google', [GoogleAuthController::class, 'authenticate'])->middleware('crp');
 

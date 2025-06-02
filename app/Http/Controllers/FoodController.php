@@ -8,8 +8,8 @@ use App\Models\Category;
 use App\Models\Food;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Storage;
-use Str;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class FoodController extends Controller
 {
@@ -26,7 +26,7 @@ class FoodController extends Controller
         })
         ->orderBy('created_at', 'desc')
         ->paginate(10);
-        
+
         return view('foods.index', ['foods' => $foods]);
     }
 
@@ -48,7 +48,7 @@ class FoodController extends Controller
     public function store(FoodRequest $request)
     {
         $data = $request->except('_token');
-        $data['image'] = $request->file('image')->store('images');
+        $data['image'] = $request->file('image')->store('foods', 'public');
 
         $food = Food::create($data);
         return redirect()->route('foods.index');
@@ -60,7 +60,7 @@ class FoodController extends Controller
     public function show(Food $food, User $user)
     {
         $this->authorize('view', $food);
-        
+
         return view('foods.show', ['food' => $food,'user' => $user]);
     }
 
@@ -85,7 +85,7 @@ class FoodController extends Controller
 
             Storage::delete($food->image);
             $path = $request->file('image')->store('images');
-            
+
             $food->image = $path;
         }
 

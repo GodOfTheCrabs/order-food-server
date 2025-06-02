@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Laravel\Fortify\Fortify;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Hash;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -52,6 +54,6 @@ class FortifyServiceProvider extends ServiceProvider
             return view('auth.register');
         });
 
-        
+
     }
 }
