@@ -105,6 +105,44 @@
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
 
+        <div class="form-group" id="detailField">
+            <label class="control-label">Calories</label>
+            <div class="inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                    <input name="calories" placeholder="Calories" class="form-control  @error('price') is-invalid @enderror"  type="number" value="{{old('calories',  $food->calories)}}"}>
+                </div>
+            </div>
+            <label class="control-label">Fats</label>
+            <div class="inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                    <input name="fat" placeholder="Fats" class="form-control  @error('price') is-invalid @enderror"  type="number" value="{{old('fat', $food->fat)}}"}>
+                </div>
+            </div>
+            <label class="control-label">Carbons</label>
+            <div class="inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                    <input name="carbohydrates" placeholder="Carbons" class="form-control  @error('price') is-invalid @enderror"  type="number" value="{{old('carbohydrates', $food->carbohydrates)}}"}>
+                </div>
+            </div>
+            <label class="control-label">Proteins</label>
+            <div class="inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                    <input name="protein" placeholder="Proteins" class="form-control  @error('price') is-invalid @enderror"  type="number" value="{{old('protein', $food->protein)}}"}>
+                </div>
+            </div>
+            <label class="control-label">Fiber</label>
+            <div class="inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                    <input name="fiber" placeholder="Fiber" class="form-control  @error('price') is-invalid @enderror"  type="number" value="{{old('fiber', $food->fiber)}}"}>
+                </div>
+            </div>
+        </div>
+
 
 
         <div class="mb-3">

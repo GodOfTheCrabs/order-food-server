@@ -84,8 +84,6 @@ class OrderController extends Controller
 
         $fileName = 'orders_' . now()->format('Ymd_His') . '.xlsx';
 
-        Excel::store(new OrdersExport($orders, $type), "reports/{$fileName}", 'public');
-
-        return response()->download(storage_path("app/public/reports/{$fileName}"));
+        return Excel::download(new OrdersExport($orders, $type), $fileName);
     }
 }

@@ -37,9 +37,10 @@ class OrderSeeder extends Seeder
                 ];
             });
 
-            $randomDate = Carbon::now()
+            $lastMonth = Carbon::now()->subMonth();
+            $randomDate = $lastMonth
                 ->startOfMonth()
-                ->addDays(rand(0, now()->daysInMonth - 1))
+                ->addDays(rand(0, $lastMonth->daysInMonth - 1))
                 ->setTime(rand(0, 23), rand(0, 59), rand(0, 59));
 
             Order::create([

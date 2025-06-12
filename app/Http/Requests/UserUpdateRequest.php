@@ -24,12 +24,19 @@ class UserUpdateRequest extends FormRequest
         $userId = auth()->user()->id;
 
         return [
-            'first_name' => 'required|string|max:255',
+            'first_name' => 'nullable|string|max:255',
             'last_name' => 'nullable|string|max:255',
-            'email' => 'required|email|unique:users,email,' . $userId,
-            'phone' => 'required|string|unique:users,phone,' . $userId,
-            'gender' => 'required|string|in:male,female',
+            'email' => 'nullable|email|unique:users,email,' . $userId,
+            'phone' => 'nullable|string|unique:users,phone,' . $userId,
+            'gender' => 'nullable|string|in:male,female',
             'photo' => 'nullable',
+            'daily_limit' => 'nullable|integer',
+            'monthly_limit' => 'nullable|integer',
+            'age' => 'nullable|integer',
+            'height' => 'nullable|integer',
+            'weight' => 'nullable|integer',
+            'is_manage_finances' => 'nullable|boolean',
+            'is_feed' => 'nullable|boolean'
         ];
     }
 }

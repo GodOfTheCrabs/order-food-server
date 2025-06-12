@@ -5,7 +5,7 @@
     <div class="col-md-12 col-lg-12">
         <article class="post vt-post">
             <div class="row">
-                
+
                 <div class="col-xs-12 col-sm-5 col-md-4">
                     <div class="post-type post-img text-center">
                         <img src="{{ asset("storage/$food->image") }}" class="img-fluid rounded shadow" alt="image post" style="max-width: 100%; height: auto;">
@@ -22,21 +22,21 @@
                     </div>
                 </div>
 
-                
+
                 <div class="col-xs-12 col-sm-7 col-md-8">
                     <div class="caption p-3 bg-light border rounded">
                         <h3 class="md-heading mb-4 text-primary">Food № {{$food->id}}</h3>
-                        
+
                         <div class="row align-items-center mb-5">
                             <h4 class="col-4 text-end text-muted mb-0">Name:</h4>
                             <p class="col-8 mb-0"><b>{{$food->name}}</b></p>
                         </div>
-                    
+
                         <div class="row align-items-center mb-5">
                             <h4 class="col-4 text-end text-muted mb-0">Price:</h4>
                             <p class="col-8 mb-0"><b>{{$food->price}}</b></p>
                         </div>
-                    
+
                         <div class="row align-items-center mb-5">
                             <h4 class="col-4 text-end text-muted mb-0">Category:</h4>
                             <p class="col-8 mb-0"><b>{{$food->category->name}}</b></p>
@@ -57,6 +57,31 @@
                             @else
                                 <p class="col-8 mb-0"><b>0/5</b></p>
                             @endif
+                        </div>
+
+                        <div class="row align-items-center mb-5">
+                            <h4 class="col-4 text-end text-muted mb-0">Calories:</h4>
+                            <p class="col-8 mb-0"><b>{{$food->calories}} kcal</b></p>
+                        </div>
+
+                        <div class="row align-items-center mb-5">
+                            <h4 class="col-4 text-end text-muted mb-0">Proteins:</h4>
+                            <p class="col-8 mb-0"><b>{{$food->protein}} g</b></p>
+                        </div>
+
+                        <div class="row align-items-center mb-5">
+                            <h4 class="col-4 text-end text-muted mb-0">Fats:</h4>
+                            <p class="col-8 mb-0"><b>{{$food->fat}} g</b></p>
+                        </div>
+
+                        <div class="row align-items-center mb-5">
+                            <h4 class="col-4 text-end text-muted mb-0">Carbons:</h4>
+                            <p class="col-8 mb-0"><b>{{$food->carbohydrates}} g</b></p>
+                        </div>
+
+                        <div class="row align-items-center mb-5">
+                            <h4 class="col-4 text-end text-muted mb-0">Fiber:</h4>
+                            <p class="col-8 mb-0"><b>{{$food->fiber}} g</b></p>
                         </div>
                     </div>
                 </div>

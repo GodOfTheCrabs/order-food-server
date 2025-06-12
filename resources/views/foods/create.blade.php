@@ -35,10 +35,6 @@
             </div>
         </div>
 
-        @error('info')
-            <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
-
         <!-- Text input-->
 
         <div class="form-group">
@@ -50,9 +46,6 @@
                 </div>
             </div>
         </div>
-        @error('price')
-            <div class="alert alert-danger  error-block">{{ $message }}</div>
-        @enderror
 
         <div class="form-group">
             <label class="control-label">Weight</label>
@@ -63,9 +56,6 @@
                 </div>
             </div>
         </div>
-        @error('weight')
-        <div class="alert alert-danger  error-block">{{ $message }}</div>
-        @enderror
 
         <div class="form-group">
             <label class="control-label">Select Category</label>
@@ -103,9 +93,51 @@
             </div>
         </div>
 
-        @error('recipe')
-            <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
+            <div class="form-group">
+                <div class="">
+                    <button type="button" id="showDetailField" class="btn btn-warning">
+                        Add detail<span class="glyphicon glyphicon-send"></span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-group" id="detailField" style="display: none;">
+                <label class="control-label">Calories</label>
+                <div class="inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                        <input name="calories" placeholder="Calories" class="form-control  @error('price') is-invalid @enderror"  type="number" value="{{old('calories')}}"}>
+                    </div>
+                </div>
+                <label class="control-label">Fats</label>
+                <div class="inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                        <input name="fat" placeholder="Fats" class="form-control  @error('price') is-invalid @enderror"  type="number" value="{{old('fat')}}"}>
+                    </div>
+                </div>
+                <label class="control-label">Carbons</label>
+                <div class="inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                        <input name="carbohydrates" placeholder="Carbons" class="form-control  @error('price') is-invalid @enderror"  type="number" value="{{old('carbohydrates')}}"}>
+                    </div>
+                </div>
+                <label class="control-label">Proteins</label>
+                <div class="inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                        <input name="protein" placeholder="Proteins" class="form-control  @error('price') is-invalid @enderror"  type="number" value="{{old('protein')}}"}>
+                    </div>
+                </div>
+                <label class="control-label">Fiber</label>
+                <div class="inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                        <input name="fiber" placeholder="Fiber" class="form-control  @error('price') is-invalid @enderror"  type="number" value="{{old('Fiber')}}"}>
+                    </div>
+                </div>
+            </div>
 
         <div class="mb-3">
             <label class="form-label">Upload food image</label>
@@ -114,10 +146,6 @@
                 <img id="imagePreview" src="" alt="Image Preview" class="img-thumbnail" style="max-width: 300px; display: none;">
             </div>
         </div>
-
-        @error('image')
-            <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
 
         <!-- Button -->
         <div class="form-group">
@@ -133,6 +161,12 @@
 <script>
     document.getElementById('showRecipeField').addEventListener('click', function () {
         const recipeFieldContainer = document.getElementById('recipeFieldContainer');
+        recipeFieldContainer.style.display = 'block';
+        this.style.display = 'none';
+    });
+
+    document.getElementById('showDetailField').addEventListener('click', function () {
+        const recipeFieldContainer = document.getElementById('detailField');
         recipeFieldContainer.style.display = 'block';
         this.style.display = 'none';
     });
